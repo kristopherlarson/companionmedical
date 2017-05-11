@@ -1,0 +1,114 @@
+.testi {
+  text-align: center;
+  background-color: $primary-color;
+  @extend %section-spacing;
+
+  h2 {
+    color: $white;
+    font-style: italic;
+    font-weight: $font-weight-bold;
+  }
+
+  p {
+    color: $white;
+    margin-bottom: rem-calc(6);
+    font-style: italic;
+    font-weight: $font-weight-semibold;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .testi-author {
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  .testi-author-biz {
+    line-height: 1.1;
+  }
+
+  .testi-content {
+    margin-bottom: rem-calc(20);
+    @include mq($mq-medium) {
+      margin-bottom: rem-calc(40);
+    }
+  }
+
+    /* Dots */
+  .slick-dots {
+    position: absolute;
+    bottom: -25px;
+    z-index: 5;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    @include mq($mq-medium) {
+      bottom: -50px;
+    }
+    li {
+      position: relative;
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      margin: 0 3px;
+      padding: 0;
+      cursor: pointer;
+      @include mq($mq-medium) {
+        height: 12px;
+        width: 12px;
+      }
+      button {
+        border: 0;
+        background: transparent;
+        display: block;
+        height: 10px;
+        width: 10px;
+        outline: none;
+        line-height: 0;
+        font-size: 0;
+        color: transparent;
+        padding: 5px;
+        cursor: pointer;
+        @include mq($mq-medium) {
+          height: 12px;
+          width: 12px;
+        }
+        &:hover, &:focus {
+          outline: none;
+          &:before {
+            opacity: 1;
+          }
+        }
+        &:focus {
+          outline: 1px dotted $dark-blue;
+        }
+        &:before {
+          position: absolute;
+          content: '';
+          display: block;
+          top: 0;
+          left: 0;
+          width: 10px;
+          height: 10px;
+          line-height: 20px;
+          text-align: center;
+          background-color: transparent;
+          border: 3px solid $dark-blue;
+          border-radius: 50%;
+          @extend %transition;
+          @include mq($mq-medium) {
+            height: 12px;
+            width: 12px;
+          }
+        }
+      }
+      &.slick-active button:before {
+        background-color: $dark-blue;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+/* 
+====================
+	MAIN FOOTER STYLES
+====================
+*/
+
+.footer {
+	flex: none;
+	text-align: center;
+	@include mq($mq-large) {
+		text-align: inherit;
+	}
+
+	.social-bar {
+		padding: 10px 0 4px;
+		background-color: $primary-color;
+		display: flex;
+		justify-content: center;
+		height: 10px;
+		svg {
+			margin-right: 5px;
+			margin-left: 5px;
+			width: 24px;
+			height: 24px;
+		}
+	}
+
+	.bottom-bar {
+		padding: rem-calc(10) 0 rem-calc(6);
+	}
+
+	.copyright {
+		font-size: rem-calc(13);
+		@include mq($mq-large) {
+			text-align: right;
+		}
+	}
+
+	.footer-nav {
+		li {
+			display: inline-block;
+			a {
+				font-size: rem-calc(12);
+				@include mq($mq-medium) {
+					font-size: rem-calc(13);
+				}
+			}
+		}
+	}
+}

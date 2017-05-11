@@ -1,0 +1,158 @@
+/* Flexable Tabs - Tabs turn into accordions on mobile */
+
+
+/* Accordion for mobile */
+
+.tabs-wrap {
+
+  ul.accordion {
+    list-style: none;
+    padding: 0;
+  }
+
+  .accordion-content {
+    text-align: center;
+    border: none;
+    padding: 32px 0 10px 0;
+
+    img {
+      margin-bottom: 10px;
+      max-height: 160px;
+    }
+  }
+
+  .accordion-title {
+    background-color: $white;
+    font-size: rem-calc(16);
+    font-weight: $font-weight-semibold;
+    border: none;
+    border-bottom: 2px solid $primary-color;
+    &:hover {
+      background-color: $white;
+    }
+    &:focus {
+      background-color: $white;
+    }
+    &:before {
+      transition: transform 2s linear;
+      font-size: rem-calc(30);
+
+    }
+  }
+
+  :last-child > .accordion-content:last-child {
+    border-bottom: 2px solid $primary-color;
+  }
+
+  :last-child:not(.is-active) > .accordion-title {
+    border-bottom: 2px solid $primary-color;
+  }
+}
+
+
+.accordion {
+  @include accordion-container;
+}
+
+.accordion-item {
+  @include accordion-item;
+}
+
+.accordion-content {
+  @include accordion-content;
+}
+
+.accordion-title {
+  @include accordion-title;
+}
+
+@include foundation-accordion;
+
+
+
+/* Tabs for Tablet and Desktop */
+
+.tabs-wrap {
+
+  ul.tabs {
+    list-style: none;
+    padding: 0;
+    border: none;
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: 16px;
+    margin-top: 0;
+
+    .tabs-title {
+      margin-left: 0;
+      margin-top: 0;
+      padding-left: 0;
+      &.is-active {
+        a {
+          transition: none;
+          &:before {
+              content: "";
+              background-image: url(../images/svg/circle.svg);
+              background-repeat: no-repeat;
+              position: absolute;
+              width: 15px;
+              height: 15px;
+              top: -24px;
+              right: 0;
+              left: 0;
+              margin: 0 auto;
+          }
+        }
+      }
+
+      > a {
+        position: relative;
+        font-weight: bold;
+        color: $secondary-color;
+        font-size: rem-calc(16);
+        padding: 0 15px;
+        @include mq($mq-full) {
+          font-size: rem-calc(18);
+        }
+      }
+
+    }
+
+    .tabs-title > a[aria-selected='true'] {
+      background: none;
+      color: $primary-color;
+    }
+  }
+
+  h4,
+  p {
+    color: $font-color;
+  }
+
+  .tabs-content {
+    border: none;
+
+    .tab-text {
+      margin-left: $column-gutter;
+    }
+
+    .tabs-panel {
+
+      img {
+        max-width: 186px;
+        width: 100%;
+      }
+
+      &.is-active {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+  }
+}
+
+
+@include foundation-tabs;

@@ -1,0 +1,43 @@
+.featured-slider {
+    position: relative;
+    width: 100%;
+
+    .full-screen-hero-background {
+        background-position: -70px 50%;
+        width: 120%;
+
+        @include mq(400px) {
+            background-position: 50%;
+            width: 100%;
+        }
+    }
+
+    figure {
+        margin-top: 70px;
+        position: relative;
+        min-height: 240px;
+        @include mq(500px) {
+            min-height: 315px;
+        }
+        @include mq($mq-medium) {
+            min-height: 380px;
+            margin-top: 88px;
+        }
+        @include mq(700px) {
+            min-height: 490px;
+        }
+        @include mq($mq-full) {
+            min-height: 500px;
+        }
+        @include mq($mq-large) {
+            min-height: 650px;
+        }
+        @include mq($mq-xxlarge) {
+            height: 100vh;
+            min-height: 350px;
+        }
+    }
+}
+
+
+

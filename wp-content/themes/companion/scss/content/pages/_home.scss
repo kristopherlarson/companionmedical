@@ -1,0 +1,145 @@
+/*
+====================
+	HOME PAGE STYLES
+====================
+*/
+
+.box-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4px;
+    @include mq($mq-wpadmin) {
+        flex-direction: row;
+    }
+
+    a {
+        overflow: hidden;
+        width: 100%;
+        &:hover {
+            h3 {
+                bottom: 9px;
+                background-color: rgba(92, 137, 199, 1);
+
+            }
+
+            .box-item {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .middle {
+        margin: 4px 0;
+        @include mq($mq-wpadmin) {
+            margin: 0 4px;
+        }
+    }
+
+    .box-item {
+        position: relative;
+        text-align: center;
+        height: 200px;
+        width: 100%;
+        transform: scale(1);
+        @extend %transition;
+
+        h3 {
+            @extend %transition;
+            bottom: 0;
+            line-height: 1;
+            padding: 1.25rem;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(92, 137, 199, 0.7);
+            width: 80%;
+
+            left: 10%;
+            color: $white;
+            font-weight: $font-weight-semibold;
+        }
+    }
+}
+
+.discover {
+    svg {
+        width: 32px;
+        height: 32px;
+        margin-bottom: $half-gutter;
+        fill: $primary-color;
+    }
+
+    img {
+        max-height: 160px;
+        margin-bottom: $half-gutter;
+        @include mq($mq-medium) {
+            margin-bottom: 0;
+            max-height: 100%;
+        }
+    }
+
+    .item-two {
+        display: flex;
+        flex-direction: column;
+
+        .mobile-top {
+            order: 1;
+            @include mq($mq-medium) {
+                order: 0;
+            }
+        }
+
+        .mobile-bottom {
+            order: 2;
+            @include mq($mq-medium) {
+                order: 0;
+            }
+        }
+    }
+
+    .item-one,
+    .item-two,
+    .item-three {
+        @include mq($mq-medium) {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+        }
+    }
+}
+
+.living-with-diabetes {
+    min-height: 300px;
+    padding: 50px 0;
+    @include mq($mq-medium) {
+        padding: 70px 0;
+    }
+    @include mq($mq-large) {
+        padding: 130px 0;
+    }
+
+    h2 {
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    .content-wrapper {
+        max-width: 100%;
+        padding: 60px 60px 60px 12%;
+        background-color: rgba(256, 256, 256, .7);
+        @include mq($mq-medium) {
+            max-width: 75%;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        @include mq($mq-full) {
+            max-width: 45%;
+        }
+    }
+    .inner-wrap {
+        max-width: 360px;
+    }
+}

@@ -1,0 +1,94 @@
+/*
+====================
+	HEADING STYLES
+====================
+*/
+
+// Headings
+.base-content {
+
+    // Heading sizes
+    @each $size, $headers in $header-styles {
+        @include breakpoint($size) {
+            @each $header, $font-size in $headers {
+                #{$header} {
+                    font-size: rem-calc($font-size);
+                }
+            }
+        }
+    }
+
+    h1, .h1,
+    h2, .h2,
+    h3, .h3,
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
+        font-weight: $font-weight-bold;
+        font-family: $heading-font-family;
+
+        @include mq($mq-full) {
+
+        }
+    }
+
+
+    h1,
+    .h1 {
+        font-weight: bold;
+        line-height: 1.2;
+        color: $primary-color;
+        margin-bottom: $half-gutter / 2;
+        @include mq($mq-full) {
+            margin-bottom: $half-gutter;
+        }
+    }
+
+    h2,
+    .h2 {
+        line-height: 1.2;
+        color: $primary-color;
+        margin-bottom: $half-gutter / 2;
+        padding-top: rem-calc(14);
+        @include mq($mq-full) {
+            margin-bottom: $half-gutter;
+        }
+    }
+
+    h3,
+    .h3 {
+        line-height: 1.2;
+        color: $primary-color;
+        margin-bottom: $half-gutter / 2;
+        padding-top: rem-calc(14);
+        @include mq($mq-full) {
+            margin-bottom: $half-gutter;
+        }
+    }
+
+    h4,
+    .h4 {
+        line-height: 1.1;
+        color: $primary-color;
+        @include mq($mq-full) {
+
+        }
+    }
+
+    h5,
+    .h5 {
+
+        @include mq($mq-full) {
+
+        }
+    }
+
+    h6,
+    .h6 {
+
+        @include mq($mq-full) {
+
+        }
+    }
+
+}

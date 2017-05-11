@@ -1,0 +1,97 @@
+@mixin form-element {
+    $height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
+
+    display: block;
+    width: 100%;
+    height: $height;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: $input-border;
+    margin: 0 0 $form-spacing;
+    font-family: $input-font-family;
+    font-size: $input-font-size;
+    color: $white;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: $input-radius;
+    @extend %transition;
+
+    @if has-value($input-transition) {
+        transition: $input-transition;
+    }
+
+    // Focus state
+    &:focus {
+        border-bottom: 2px solid $white;
+        outline: none;
+
+
+        @if has-value($input-transition) {
+            transition: $input-transition;
+        }
+    }
+}
+
+@mixin foundation-form-text {
+    // Text inputs
+    #{text-inputs()},
+    textarea {
+        @include form-element;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    // Text areas
+    textarea {
+        max-width: 100%;
+
+        &[rows] {
+            height: auto;
+        }
+    }
+
+    input,
+    textarea {
+        // Placeholder text
+        &::-webkit-input-placeholder{
+            color: $white;
+            font-style: italic;
+            font-weight: $font-weight-normal;
+        }
+
+        // Disabled/readonly state
+        &:disabled,
+        &[readonly] {
+            background-color: $input-background-disabled;
+            cursor: $input-cursor-disabled;
+        }
+    }
+
+    // Reset styles on button-like inputs
+    [type='submit'],
+    [type='button'] {
+        border-radius: $button-radius;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    // Reset Normalize setting content-box to search elements
+    // scss-lint:disable QualifyingElement
+    input[type='search'] {
+        box-sizing: border-box;
+    }
+
+    // Number input styles
+    [type='number'] {
+        @if not $input-number-spinners {
+            -moz-appearance: textfield;
+
+            [type='number']::-webkit-inner-spin-button,
+            [type='number']::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+    }
+}

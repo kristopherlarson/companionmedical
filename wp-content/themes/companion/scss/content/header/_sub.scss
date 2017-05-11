@@ -1,0 +1,41 @@
+.page-header {
+  text-align: center;
+  border-bottom: 20px solid $primary-color;
+
+  img {
+    max-height: 300px;
+    padding: 0 20px;
+    @include mq($mq-medium) {
+      padding: 0 0;
+    }
+  }
+}
+
+
+
+.full-back {
+  padding-top: 70px;
+
+  @include mq($mq-medium) {
+    padding-top: 88px;
+  }
+}
+
+.ratio-image {
+  padding-top: 85px;
+
+  @include mq($mq-medium) {
+    padding-top: 100px;
+  }
+}
+
+// Scren Width Hero Image
+.hero-sub {
+  height: 168px;
+  @include mq($mq-medium) {
+    height: 228px;
+  }
+  @include mq($mq-large) {
+    height: 300px;
+  }
+}
